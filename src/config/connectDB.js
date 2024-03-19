@@ -1,16 +1,20 @@
-//import mysql2 service to use
-import mysql from 'mysql2/promise';
+//require sequelize to use this services
+const { Sequelize } = require('sequelize');
 
-// // create the connection to database
-
-console.log("Creating connection pool...");
-
-const pool = mysql.createPool({
+// Option 3: Passing parameters separately (other dialects)
+const sequelize = new Sequelize('bookingcare', 'root', '', {
     host: 'localhost',
-    user: 'root',
-    database: 'bookingcare',
-    // password: 'password'
-})
+    dialect: 'mariadb',
+    logging: false
+});
 
-//export to use the db connnection config
-export default pool;
+let conectDB = async () => {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database:', error);
+    }
+}
+
+module.exports = conectDB;

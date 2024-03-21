@@ -16,6 +16,7 @@ const initWebRoute = (app) => {
     router.get('/crud', homeController.getCRUD);
 
     router.post('/post-crud', homeController.postCRUD);
+    router.get('/get-crud', homeController.displayGetCRUD);
 
     //return current "router" controller url choosed by client action
     return app.use('/', router);

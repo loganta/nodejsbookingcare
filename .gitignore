@@ -1,3 +1,7 @@
-node_modules
+/node_modules
+/vendor
 .DS_Store
+/ .idea/
+.env
 package-lock.json
+.idea/

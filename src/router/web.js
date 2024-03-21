@@ -10,9 +10,12 @@ const initWebRoute = (app) => {
     router.get('/', homeController.getHomepage);
 
     //response the action show about page
-    router.get('/about', (req, res) => {
-        res.send(`About page content`)
-    })
+    router.get('/about', homeController.getAboutPage);
+
+    //response the action show crub page
+    router.get('/crud', homeController.getCRUD);
+
+    router.post('/post-crud', homeController.postCRUD);
 
     //return current "router" controller url choosed by client action
     return app.use('/', router);

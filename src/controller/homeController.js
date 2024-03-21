@@ -1,4 +1,5 @@
 import db from '../models/index';
+import CRUDService from '../services/CRUDService';
 
 /**
 * Return Homepage 
@@ -16,11 +17,25 @@ let getHomepage = async (req, res) => {
     }
 }
 
-let getAboutPage = () => {
+let getAboutPage = (req, res) => {
     return res.render('test/about.ejs');
+}
+
+let getCRUD = (req, res) => {
+    return res.render('crud.ejs');
+}
+
+let postCRUD = async (req, res) => {
+    let message = await CRUDService.createNewUser(req.body);
+    console.log(message);
+
+    res.send('post crud from sever');
 }
 
 //Tranfer functions and can call other posittion
 module.exports = {
-    getHomepage, getAboutPage
+    getHomepage,
+    getAboutPage,
+    getCRUD,
+    postCRUD
 }

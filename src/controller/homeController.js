@@ -40,11 +40,37 @@ let displayGetCRUD = async (req, res) => {
     return res.render('displayCRUD.ejs', { dataTable: data });
 }
 
+let getEditCRUD = async (req, res) => {
+    let userId = req.query.id;
+    if (userId) {
+        let userData = await CRUDService.getUserInfoById(userId);
+        //check user not found
+        if (!userData) {
+            return res.render('editCRUD.ejs', {});
+        }
+
+        //render data to view tempalte
+        return res.render('editCRUD.ejs', {
+            user: userData
+        });
+    } else {
+        return res.send('Users not found!');
+    }
+}
+
+let putCRUD = async (req, res) => {
+    let data = req.body;
+    let allUsers = await CRUDService.updateUserData(data);
+    return res.render('displayCRUD.ejs', { dataTable: allUsers });
+}
+
 //Tranfer functions and can call other posittion
 module.exports = {
     getHomepage: getHomepage,
     getAboutPage: getAboutPage,
     getCRUD: getCRUD,
     postCRUD: postCRUD,
-    displayGetCRUD: displayGetCRUD
+    displayGetCRUD: displayGetCRUD,
+    getEditCRUD: getEditCRUD,
+    putCRUD: putCRUD
 }

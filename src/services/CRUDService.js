@@ -101,9 +101,33 @@ let updateUserData = async (data) => {
     });
 }
 
+let deleteCRUDById = (userId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            // check it found the record need update exist
+            let userInfo = await db.User.findOne({
+                where: { id: userId },
+                raw: true
+            });
+            if (userInfo) {
+                // Delete everyone with id === userId
+                await db.User.destroy({
+                    where: {
+                        id: userId
+                    },
+                });
+            }
+            resolve();
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
 module.exports = {
     createNewUser: createNewUser,
     getAllUser: getAllUser,
     getUserInfoById: getUserInfoById,
-    updateUserData: updateUserData
+    updateUserData: updateUserData,
+    deleteCRUDById: deleteCRUDById
 }

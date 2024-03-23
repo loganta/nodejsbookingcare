@@ -1,5 +1,6 @@
 import express from "express";
 import homeController from '../controller/homeController';
+import userController from '../controller/userController';
 
 //use Router service of express framework js
 let router = express.Router();
@@ -20,6 +21,9 @@ const initWebRoute = (app) => {
     router.get('/edit-crud', homeController.getEditCRUD);
     router.post('/put-crud', homeController.putCRUD);
     router.get('/delete-crud', homeController.deleteCRUD);
+
+    //restful api
+    router.post('/api/login', userController.handleLogin);
 
     //return current "router" controller url choosed by client action
     return app.use('/', router);

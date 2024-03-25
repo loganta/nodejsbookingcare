@@ -24,6 +24,7 @@ const initWebRoute = (app) => {
 
     //restful api
     router.post('/api/login', userController.handleLogin);
+    router.get('/api/get-all-users', userController.handleGetAllUsers);
 
     //return current "router" controller url choosed by client action
     return app.use('/', router);

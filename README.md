@@ -37,6 +37,8 @@ Associate with database:
 https://sequelize.org/docs/v6/other-topics/migrations/#installing-the-cli
 npx sequelize-cli init
 npx sequelize-cli db:migrate
+npx sequelize-cli seed:generate --name demo-user
+npx sequelize-cli db:seed:all
 
 ===================================================
 Tools:

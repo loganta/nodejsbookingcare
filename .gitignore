@@ -2,6 +2,8 @@
 /vendor
 .DS_Store
 / .idea/
-.env
+.env*
 package-lock.json
 .idea/
+.env
+.env.example

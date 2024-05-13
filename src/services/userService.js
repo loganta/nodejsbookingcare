@@ -172,7 +172,7 @@ let deleteUser = (idInput) => {
             });
             resolve({
                 errCode: 0,
-                errMessage: 'Delete the user successfully!'
+                errMessage: 'Delete the user suc cessfully!'
             })
         } catch (e) {
             reject(e);

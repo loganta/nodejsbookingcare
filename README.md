@@ -43,3 +43,8 @@ npx sequelize-cli db:seed:all
 ===================================================
 Tools:
  1. use opensource http://koala-app.com/ to support code scss/css/less (this project use scss)
+
+
+ ==================================================
+ # Khóa học Fullstack SERN (SQL, Express.js, React.js, Node.js)
+ https://www.youtube.com/playlist?list=PLncHg6Kn2JT6E38Z3kit9Hnif1xC_9VqI
